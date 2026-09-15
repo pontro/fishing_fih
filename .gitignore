@@ -1,0 +1,24 @@
+# Gradle build artifacts and caches
+.gradle/
+build/
+bin/
+out/
+
+# Loom / Minecraft runtime environment
+run/
+!run/config/*.json
+
+# IDE configuration files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# System & OS files
+.DS_Store
+Thumbs.db
+*.log

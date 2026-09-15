@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "fun_fishing",
+  "version": "${version}",
+  "name": "Fun Fishing",
+  "description": "A mod adding custom fish to Minecraft!",
+  "authors": [
+    "kontgo"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/fun_fishing/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.funfishing.FunFishingMod"
+    ],
+    "client": [
+      "com.example.funfishing.FunFishingClient"
+    ]
+  },
+  "mixins": [
+    "fun_fishing.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
