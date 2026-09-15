@@ -26,15 +26,19 @@ public class ModItems {
     public static final Item FIH_SPAWN_EGG = registerItem("fih_spawn_egg",
             new SpawnEggItem(ModEntities.FIH, 0xD2B48C, 0x33B2FF, new Item.Settings()));
 
+    public static final Item WOODEN_FISHING_ROD = registerItem("wooden_fishing_rod",
+            new ModFishingRodItem(new Item.Settings().maxDamage(64)));
+
     public static final RegistryKey<ItemGroup> FUN_FISHING_GROUP_KEY = RegistryKey.of(
             Registries.ITEM_GROUP.getKey(),
             new Identifier(FunFishingMod.MOD_ID, "fun_fishing_group")
     );
 
     public static final ItemGroup FUN_FISHING_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(FIH))
+            .icon(() -> new ItemStack(WOODEN_FISHING_ROD))
             .displayName(Text.translatable("itemGroup.fun_fishing.fun_fishing_group"))
             .entries((context, entries) -> {
+                entries.add(WOODEN_FISHING_ROD);
                 entries.add(FIH);
                 entries.add(COOKED_FIH);
                 entries.add(FIH_BUCKET);
@@ -55,6 +59,9 @@ public class ModItems {
             entries.add(COOKED_FIH);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.getDisplayStacks().removeIf(stack -> stack.isOf(Items.FISHING_ROD));
+            entries.getSearchTabStacks().removeIf(stack -> stack.isOf(Items.FISHING_ROD));
+            entries.add(WOODEN_FISHING_ROD);
             entries.add(FIH_BUCKET);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {

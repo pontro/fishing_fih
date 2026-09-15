@@ -53,6 +53,14 @@ public abstract class FishingBobberEntityMixin {
         }
     }
 
+    @org.spongepowered.asm.mixin.injection.Redirect(
+        method = "removeIfInvalid",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z")
+    )
+    private boolean checkFishingRod(ItemStack stack, net.minecraft.item.Item item) {
+        return stack.getItem() instanceof net.minecraft.item.FishingRodItem;
+    }
+
     @Inject(method = "remove", at = @At("HEAD"))
     private void onRemove(CallbackInfo ci) {
         PlayerEntity owner = this.getPlayerOwner();

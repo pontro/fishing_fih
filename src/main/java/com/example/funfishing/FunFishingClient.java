@@ -18,8 +18,29 @@ public class FunFishingClient implements ClientModInitializer {
 
         FishingSkillCheckOverlay.init();
 
+        // Register the "cast" predicate so the model flips to cast variant when fishing
+        registerFishingRodPredicates(com.example.funfishing.item.ModItems.WOODEN_FISHING_ROD);
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             FishingSkillCheckOverlay.tickClient();
         });
+    }
+
+    public static void registerFishingRodPredicates(net.minecraft.item.Item item) {
+        net.minecraft.client.item.ModelPredicateProviderRegistry.register(
+            item,
+            new net.minecraft.util.Identifier("cast"),
+            (stack, world, entity, seed) -> {
+                if (entity == null) {
+                    return 0.0F;
+                }
+                boolean isMainHand = entity.getMainHandStack() == stack;
+                boolean isOffHand = entity.getOffHandStack() == stack;
+                if (entity.getMainHandStack().getItem() instanceof net.minecraft.item.FishingRodItem) {
+                    isOffHand = false;
+                }
+                return (isMainHand || isOffHand) && entity instanceof net.minecraft.entity.player.PlayerEntity player && player.fishHook != null ? 1.0F : 0.0F;
+            }
+        );
     }
 }

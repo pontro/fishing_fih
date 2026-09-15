@@ -4,5 +4,11 @@
   "item.fun_fishing.cooked_fih": "Cooked Fih",
   "item.fun_fishing.fih_bucket": "Bucket of Fih",
   "item.fun_fishing.fih_spawn_egg": "Fih Spawn Egg",
-  "itemGroup.fun_fishing.fun_fishing_group": "Fun Fishing"
+  "item.fun_fishing.wooden_fishing_rod": "Wooden Fishing Rod",
+  "itemGroup.fun_fishing.fun_fishing_group": "Fun Fishing",
+  "tooltip.fun_fishing.charm_prefix": "Charm: ",
+  "tooltip.fun_fishing.no_charm": "No Charm Attached",
+  "charm.fun_fishing.luck": "Luck of the Sea Charm",
+  "charm.fun_fishing.speed": "Swift Reel Charm",
+  "charm.fun_fishing.golden": "Golden Hook Charm"
 }

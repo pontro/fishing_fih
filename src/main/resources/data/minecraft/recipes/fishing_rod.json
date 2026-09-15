@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:barrier"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "item": "minecraft:fishing_rod"
+  }
+}
