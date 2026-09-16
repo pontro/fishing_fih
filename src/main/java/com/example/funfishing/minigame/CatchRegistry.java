@@ -16,7 +16,7 @@ public class CatchRegistry {
         CATCH_ENTRIES.clear();
         totalWeight = 0;
 
-        // Default catch: Fih (Weight: 100, Base Difficulty: 6)
+        // Default catch: Fih (Weight: 100, Base Difficulty: 4)
         register(ModItems.FIH, 1, 100, 4);
     }
 
